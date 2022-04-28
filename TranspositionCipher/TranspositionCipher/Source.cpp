@@ -1,8 +1,7 @@
-#include<iostream>
-#include<string>
+
 #include <winsock2.h>	
 #include <ws2tcpip.h>	
-
+#include "Encryption.h"
 #pragma comment(lib, "Ws2_32.lib")	
 
 #define DEFAULT_PORT "27015"
@@ -11,7 +10,12 @@
 
 int main()
 {
-
+	
+	Encryption  encryption("copil", "laboratorul de retele de calculatoare");
+	encryption.PrintEncryptionData();
+	encryption.EncryptMessage();
+	std::cout << encryption.GetEncryptedMessage() << std::endl;
+	
 	WSADATA wsaData;
 	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0)
@@ -69,6 +73,8 @@ int main()
 	int recvbuflen = DEFAULT_BUFLEN;
 	char recvbuf[DEFAULT_BUFLEN];
 	do {
+
+
 		std::cout << "Introduceti mesajul : \n";
 		std::cin >> message;
 		const char* sendbuf = message.c_str();

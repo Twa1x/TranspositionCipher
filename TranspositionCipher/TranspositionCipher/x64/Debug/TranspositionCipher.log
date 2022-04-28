@@ -1,2 +1,3 @@
-﻿  Source.cpp
+﻿  Encryption.cpp
+C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\TranspositionCipher\Encryption.cpp(36,63): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   TranspositionCipher.vcxproj -> C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\x64\Debug\TranspositionCipher(Client).exe
