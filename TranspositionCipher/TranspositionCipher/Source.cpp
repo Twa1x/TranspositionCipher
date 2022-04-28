@@ -74,6 +74,8 @@ int main()
 		std::cout << "Introduceti mesajul : \n";
 		getline(std::cin, message);
 		Encryption  encryption("copil", message);
+		if (message == "close")
+			break;
 		encryption.PrintEncryptionData();
 		encryption.EncryptMessage();
 		std::cout << encryption.GetEncryptedMessage() << std::endl;
