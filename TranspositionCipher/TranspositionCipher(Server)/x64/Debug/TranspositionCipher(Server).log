@@ -1,4 +1,5 @@
 ﻿  Decryption.cpp
 C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\TranspositionCipher(Server)\Decryption.cpp(5,54): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\TranspositionCipher(Server)\Decryption.cpp(30,61): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\TranspositionCipher(Server)\Decryption.cpp(68,61): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
   TranspositionCipher(Server).vcxproj -> C:\Users\INTEL\Documents\GitHub\TranspositionCipher\TranspositionCipher\x64\Debug\TranspositionCipher(Server).exe

@@ -7,9 +7,7 @@
 int main()
 {
 
-	Decryption decryption("copil", "lalreclroreeeco*ru l ua*at e aaebodtdlt*");
-	decryption.PrintDecryptionData();
-	decryption.DecryptMessage();
+
 	WSADATA wsaData;
 	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0)
@@ -94,9 +92,16 @@ int main()
 			std::cout << "Bytes received: " << iRecvResult << std::endl;
 
 			std::cout << "Buffer content: ";
+			std::string messageToDecrypt = "";
 			for (int i = 0; i < iRecvResult; i++)
-				std::cout << recvbuf[i];
+				messageToDecrypt+= recvbuf[i];
 			std::cout << std::endl;
+			std::cout << messageToDecrypt;
+			std::cout << std::endl;
+			Decryption decryption("copil", messageToDecrypt);
+			decryption.PrintDecryptionData();
+			decryption.DecryptMessage();
+
 
 
 			sprintf_s(sendbuf, "Thank you, I received %d bytes from you!", iRecvResult);

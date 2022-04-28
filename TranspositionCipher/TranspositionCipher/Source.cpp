@@ -11,11 +11,7 @@
 int main()
 {
 	
-	Encryption  encryption("copil", "laboratorul de retele de calculatoare");
-	encryption.PrintEncryptionData();
-	encryption.EncryptMessage();
-	std::cout << encryption.GetEncryptedMessage() << std::endl;
-	
+
 	WSADATA wsaData;
 	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0)
@@ -76,10 +72,14 @@ int main()
 
 
 		std::cout << "Introduceti mesajul : \n";
-		std::cin >> message;
-		const char* sendbuf = message.c_str();
-
-
+		getline(std::cin, message);
+		Encryption  encryption("copil", message);
+		encryption.PrintEncryptionData();
+		encryption.EncryptMessage();
+		std::cout << encryption.GetEncryptedMessage() << std::endl;
+		std::string tempMessage = encryption.GetEncryptedMessage();
+		const char* sendbuf = tempMessage.c_str();
+	
 		iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
 		if (iResult == SOCKET_ERROR)
 		{

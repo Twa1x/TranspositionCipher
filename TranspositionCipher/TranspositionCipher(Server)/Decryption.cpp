@@ -3,7 +3,7 @@
 Decryption::Decryption(std::string key, std::string encryptedMessage) : m_key{ key }, m_encryptedMessage{ encryptedMessage }
 {
 	int index = m_encryptedMessage.size() / m_key.size();
-	std::cout << index << std::endl;
+	//std::cout << index << std::endl;
 	m_decryptionData.resize(m_key.size());
 	for (int i = 0; i < m_key.size(); ++i)
 	{
@@ -26,7 +26,7 @@ Decryption::Decryption(std::string key, std::string encryptedMessage) : m_key{ k
 
 void Decryption::PrintDecryptionData()
 {
-	std::cout << m_encryptedMessage << std::endl;
+	//std::cout << m_encryptedMessage << std::endl;
 	int indexMax = m_encryptedMessage.size() / m_key.size() + 1;
 	//std::cout << indexMax << std::endl;
 	for (int i = 0; i < indexMax; ++i)
@@ -51,7 +51,30 @@ void Decryption::DecryptMessage()
 	std::vector < std::string> tempDecryptionData;
 	tempDecryptionData.resize(m_key.size());
 
+	for (int i = 0; i < m_key.size(); ++i)
+	{
+		auto it = tempMap.find(m_key[i]);
+		int index = it->second;
+		for (int j = 0; j < m_decryptionData.size(); ++j)
+		{
+			if (m_key[i] == m_decryptionData[j][0])
+			{
+				tempDecryptionData[index] = m_decryptionData[j];
+			}
+		}
 
+	}
 
+	int indexMax = m_encryptedMessage.size() / m_key.size() + 1;
+	for (int i = 1; i < indexMax; ++i)
+	{
+		for (int j = 0; j < m_key.size(); ++j)
+		{
+			m_decryptedMessage += tempDecryptionData[j][i];
+		}
+		
+	}
+	std::cout << std::endl;
+	std::cout << m_decryptedMessage << std::endl;
 
 }
